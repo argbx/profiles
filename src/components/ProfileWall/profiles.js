@@ -25,11 +25,21 @@ const Profiles = observer((props) => {
     };
 
     return(
-        <div>
+        <div style={{
+            padding: "2px",
+            display: "block",
+            minHeight: "1px",
+            width: "100%",
+            border: "1px solid #00415b",
+            overflow: "auto",
+            textAlign: "center",
+            backgroundColor: "#00415b"
+        }}>
             <Gallery
                 images={profiles}
                 enableImageSelection={false}
                 tagStyle={tagStyle}
+                showImageCount={false}
                 margin={15}
             />
         </div>
