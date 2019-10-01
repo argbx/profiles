@@ -1,11 +1,11 @@
 import React from 'react';
 import {toJS } from 'mobx';
+import Profiles from './profiles'
 
 const ProfileWall = (props) => {
-    console.log("props", toJS(props.profiles));
     return(
         <div>
-            Profile Wall
+            <Profiles profileList={props.profiles} />
         </div>
     )
 }
