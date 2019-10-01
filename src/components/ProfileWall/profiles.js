@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {toJS} from "mobx";
 import { observer } from 'mobx-react';
 import _ from 'lodash'
 
@@ -8,12 +7,12 @@ import ProfileStore from "../../stores/profileStore";
 
 const Profiles = observer((props) => {
     const [selectedProfile, setselectedProfile] = useState({});
-
     const profiles = ProfileStore.instance().profiles || [];
-    console.log("props", toJS(profiles));
+
     const onProfileSelect = (index) => {
         setselectedProfile(profiles[index])
-    }
+    };
+    
     const tagStyle = {
         display: "inline",
         padding: "0.2em 0.6em 0.3em",

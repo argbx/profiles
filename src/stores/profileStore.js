@@ -18,17 +18,18 @@ export default class ProfileStore {
      * LOAD ProfileWall ACTIONS
      */
     @action
-    loadProfiles(sort) {
-        API.get('basicProfiles',sort)
-            .then((result) => this.loadProfilesSuccess(result))
+    loadProfiles(params) {
+        API.get('basicProfiles',params)
+            .then((result) => this.loadProfilesSuccess(result,params))
             .fail((err) => {
                 console.log("err", err);
             });
     }
 
     @action
-    loadProfilesSuccess(result) {
-        this.profiles = result.items;
+    loadProfilesSuccess(result,params) {
+        this.profiles=  _.size(result.items) < 36 ? result.items : _.merge(this.profiles,result.items);
+
         this.loadDetailedProfiles();
     }
 

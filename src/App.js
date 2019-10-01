@@ -19,7 +19,7 @@ const App = () => {
     // Switch between Distance and Activity Sorting
     const onSelect = (param) => {
         setSortValue(param.value)
-        ProfileStore.instance().loadProfiles(param.value);
+        ProfileStore.instance().loadProfiles({sorting: param.value});
     };
 
   return (

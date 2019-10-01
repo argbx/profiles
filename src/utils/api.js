@@ -12,10 +12,10 @@ class API {
 
     apiPath(resource, params) {
         switch(resource) {
-            case 'basicProfiles':
-                return this.host() + '/api/search?length=36&sorting=' + (params || 'DISTANCE');
+            case 'basicProfiles'://`${profile.headline}`
+                return `${this.host()}/api/search?length=${_.get(params,'size',36)}&sorting=${_.get(params,'sorting','DISTANCE')}`;
             case 'detailedProfiles':
-                return this.host() + '/api/profiles?ids=' + params;
+                return `${this.host()}/api/profiles?ids=${params}`;
             default:
                 throw new Error('no valid resource!');
         }
