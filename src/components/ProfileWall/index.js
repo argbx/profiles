@@ -3,7 +3,7 @@ import Profiles from './profiles'
 import '../../App.css';
 import ProfileStore from "../../stores/profileStore";
 
-const ProfileWall = (props) => {
+const ProfileWall = () => {
     const [isFetching, setIsFetching] = useState(false);
     const [gallerySize, setgallerySize] = useState(36);
 
@@ -15,6 +15,7 @@ const ProfileWall = (props) => {
     useEffect(() => {
         if (!isFetching) return;
         fetchMoreProfiles();
+        // eslint-disable-next-line
     }, [isFetching]);
 
 

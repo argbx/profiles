@@ -11,7 +11,7 @@ const App = () => {
     ]
     const [sortValue, setSortValue] = useState("DISTANCE");
 
-    //ComponentDidMount get the profiles
+    // Initial load get all the profiles
     useEffect(() => {
         ProfileStore.instance().loadProfiles();
     },[]);
@@ -28,6 +28,6 @@ const App = () => {
         <ProfileWall />
     </div>
   );
-}
+};
 
 export default App;

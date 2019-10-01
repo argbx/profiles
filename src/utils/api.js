@@ -2,7 +2,7 @@ import _ from 'lodash';
 import reqwest from 'reqwest';
 
 /**
- * API class - handels all api related stuff
+ * API class - handles all api related stuff
  */
 class API {
 
