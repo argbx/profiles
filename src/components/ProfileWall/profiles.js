@@ -1,9 +1,13 @@
 import React from 'react';
 import {toJS} from "mobx";
-import Gallery from 'react-grid-gallery';
+import { observer } from 'mobx-react';
 
-const Profiles = (props) => {
-    console.log("props", toJS(props.profileList));
+import Gallery from 'react-grid-gallery';
+import ProfileStore from "../../stores/profileStore";
+
+const Profiles = observer((props) => {
+    const profiles = ProfileStore.instance().profiles || [];
+    console.log("props", toJS(profiles));
     const tagStyle = {
         display: "inline",
         padding: "0.2em 0.6em 0.3em",
@@ -23,13 +27,13 @@ const Profiles = (props) => {
     return(
         <div>
             <Gallery
-                images={props.profileList}
+                images={profiles}
                 enableImageSelection={false}
                 tagStyle={tagStyle}
                 margin={15}
             />
         </div>
     )
-}
+})
 
 export default Profiles
