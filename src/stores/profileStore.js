@@ -17,14 +17,17 @@ export default class ProfileStore {
      */
     @action
     loadProfiles(sort) {
-
         API.get('init',sort)
-            .then((result) => {
-                console.log("result",toJS(result))
-            })
+            .then((result) => this.loadProfilesSuccess(result))
             .fail((err) => {
                 console.log("err", err);
             });
+    }
+
+    @action
+    loadProfilesSuccess(result) {
+        this.profiles = result.items;
+        console.log("result",toJS(this.profiles));
     }
 
 
