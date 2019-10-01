@@ -24,7 +24,7 @@ class API {
         const data  = _.get(params, 'data');
 
         const requestParams = {
-            mode: 'no-cors',
+            mode:       'no-cors',
             method:      method,
             url:         path,
             type:        'json',
