@@ -52,6 +52,7 @@ export default class ProfileStore {
               thumbnailWidth: 250,
               thumbnailHeight: 250,
               thumbnailCaption: profile.name,
+              caption:`${profile.headline}`,
               tags: [{value:_.get(profile,'personal.age'), title: _.get(profile,'personal.age')}, {value: profile.online_status, title: profile.online_status}, {value:`${_.get(profile,'location.distance')}m`, title:`${_.get(profile,'location.distance')}m`}],
 
           }
