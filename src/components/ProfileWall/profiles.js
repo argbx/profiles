@@ -48,8 +48,11 @@ const Profiles = observer((props) => {
                 margin={15}
                 currentImageWillChange={onProfileSelect}
                 customControls={[
-                    <button key="lastLoggedin" >
-                        Location Name:  {_.get(selectedProfile,'locationName')}
+                    <button key="lastLoggedin" style={{margin:'auto'}}>
+                        {_.get(selectedProfile,'thumbnailCaption')} last logged in {_.get(selectedProfile,'lastLogin') > 24
+                        ?  `${Math.round(_.get(selectedProfile,'lastLogin') / 24)} day(s)`
+                        : `${_.get(selectedProfile,'lastLogin')} hour(s)`}  ago
+                        from {_.get(selectedProfile,'locationName')}
                     </button>
                 ]}
             />
