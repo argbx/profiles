@@ -1,4 +1,6 @@
 import { action,observable,toJS } from 'mobx';
+import _ from 'lodash';
+
 // Import API
 import API from '../utils/api';
 
@@ -17,7 +19,7 @@ export default class ProfileStore {
      */
     @action
     loadProfiles(sort) {
-        API.get('init',sort)
+        API.get('basicProfiles',sort)
             .then((result) => this.loadProfilesSuccess(result))
             .fail((err) => {
                 console.log("err", err);
@@ -27,8 +29,35 @@ export default class ProfileStore {
     @action
     loadProfilesSuccess(result) {
         this.profiles = result.items;
-        console.log("result",toJS(this.profiles));
+        this.loadDetailedProfiles();
     }
+
+    @action
+    loadDetailedProfiles() {
+        const ids = _.join(_.map(this.profiles,'id'),'&ids=')
+        API.get('detailedProfiles',ids)
+            .then((result) => this.loadDetailedProfilesSuccess(result))
+            .fail((err) => {
+                console.log("err", err);
+            });
+    }
+
+    @action
+    loadDetailedProfilesSuccess(result) {
+
+        this.profiles = _.map(_.merge(this.profiles,result),profile => {
+          return {
+              src: _.get(profile,'picture.url','http://localhost:5000/images/noImage.png'),
+              thumbnail: _.get(profile,'picture.url','http://localhost:5000/images/noImage.png'),
+              thumbnailWidth: 150,
+              thumbnailHeight: 200,
+          }
+        })
+
+        // this.profiles = result
+        console.log("r24", toJS(this.profiles),toJS(result));
+    }
+
 
 
 }
