@@ -4,7 +4,9 @@
     <list default="true" id="f4c707b0-0bc7-4719-8ccd-f953d4c0ae80" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/src/stores/profileStore.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/utils/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569924355492</updated>
-      <workItem from="1569924357136" duration="1134000" />
+      <workItem from="1569924357136" duration="1748000" />
     </task>
     <servers />
   </component>
