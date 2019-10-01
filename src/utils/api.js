@@ -13,7 +13,7 @@ class API {
     apiPath(resource, params) {
         switch(resource) {
             case 'basicProfiles':
-                return this.host() + '/api/search?length=32';
+                return this.host() + '/api/search?length=32&sorting=' + (params || 'DISTANCE');
             case 'detailedProfiles':
                 return this.host() + '/api/profiles?ids=' + params;
             default:

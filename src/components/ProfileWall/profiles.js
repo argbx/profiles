@@ -7,7 +7,7 @@ const Profiles = (props) => {
 
     return(
         <div>
-            <Gallery 
+            <Gallery
                 images={props.profileList}
                 enableImageSelection={false}
                 margin={15}
