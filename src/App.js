@@ -10,19 +10,19 @@ const App = observer(() => {
     const options = [
         {label:'Distance',value:'DISTANCE'}, {label:'Activity',value:'ACTIVITY'}
     ]
-    const [sortValue, setSortValue] = useState(false);
+    const [sortValue, setSortValue] = useState("DISTANCE");
 
     //ComponentDidMount get the profiles
     useEffect(() => {
-        ProfileStore.instance().loadProfiles()
+        ProfileStore.instance().loadProfiles();
     },[]);
 
     const profiles = ProfileStore.instance().profiles || [];
 
+    // Switch between Distance and Activity Sorting
     const onSelect = (param) => {
-        setSortValue(param.value)
-        ProfileStore.instance().loadProfiles(param.value)
-    }
+        ProfileStore.instance().loadProfiles(param.value);
+    };
 
   return (
     <div className="App">
