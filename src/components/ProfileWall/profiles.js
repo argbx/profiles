@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {toJS} from "mobx";
 import { observer } from 'mobx-react';
+import _ from 'lodash'
 
 import Gallery from 'react-grid-gallery';
 import ProfileStore from "../../stores/profileStore";
 
 const Profiles = observer((props) => {
+    const [selectedProfile, setselectedProfile] = useState({});
+
     const profiles = ProfileStore.instance().profiles || [];
     console.log("props", toJS(profiles));
+    const onProfileSelect = (index) => {
+        setselectedProfile(profiles[index])
+    }
     const tagStyle = {
         display: "inline",
         padding: "0.2em 0.6em 0.3em",
@@ -41,6 +47,12 @@ const Profiles = observer((props) => {
                 tagStyle={tagStyle}
                 showImageCount={false}
                 margin={15}
+                currentImageWillChange={onProfileSelect}
+                customControls={[
+                    <button key="lastLoggedin" >
+                        Location Name:  {_.get(selectedProfile,'locationName')}
+                    </button>
+                ]}
             />
         </div>
     )
